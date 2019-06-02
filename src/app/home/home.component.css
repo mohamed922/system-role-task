@@ -1,0 +1,28 @@
+table {
+    width: 50%;
+    margin-left : 200px  ;
+    margin-top : 10px ;
+  }
+  .mat-sort-header-container {
+    align-items: center;
+  }
+  .example-full-width {
+    width: 50%;
+    margin-left : 200px  ;
+  }
+  .right {
+      float: right ;
+      margin-right : 200px  ;
+      margin-top : 10px ;
+  }
+  .left {
+    float : left ;
+    margin-left : 200px  ;
+  }
+ #opt {
+   background-color: grey ;
+   color : white ;
+   height: 30px;
+   width : 100px ;
+   padding: 5px ;
+ }

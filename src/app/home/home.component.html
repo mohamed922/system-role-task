@@ -1,0 +1,62 @@
+<mat-form-field class="example-full-width">
+  <input matInput placeholder="enter role" #name >
+</mat-form-field>
+<button mat-button color="primary" (click)="search(name)">Search</button>
+<button mat-button color="primary" (click)="restData(name)">Reset</button>
+
+<table mat-table [dataSource]="mydataSource" matSort class="mat-elevation-z8">
+
+    <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> <input type="checkbox" id='all' (click)="checkAll()"> </th>
+        <td mat-cell *matCellDef="let element"> 
+            <input type="checkbox"   (click)="diplayOptions()" id='myche' >
+              <span id = "options" style="display: none" (click)="diplayOption()">
+                  <i class="material-icons"  >
+                      list
+                      </i>
+                    </span>
+                    <span id = 'opt'style="display: none" >
+                        <i class="material-icons" (click)="deleteRow(element._id)">
+                            delete_forever
+                            </i> 
+                            <i class="material-icons"  [routerLink]="['add/',element._id]">
+                                edit
+                                </i>
+                                <i class="material-icons">
+                                    block
+                                    </i>
+                                    <i class="material-icons">
+                                        check_circle
+                                        </i>
+                    </span>
+          
+           
+     </td>
+      </ng-container>
+<!-- title Column -->
+<ng-container matColumnDef="name">
+  <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
+  <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+</ng-container>
+
+<!-- desc Column -->
+<ng-container matColumnDef="date">
+  <th mat-header-cell *matHeaderCellDef mat-sort-header>Date </th>
+  <td mat-cell *matCellDef="let element">{{element.date}} </td>
+</ng-container>
+<ng-container matColumnDef="status">
+  <th mat-header-cell *matHeaderCellDef mat-sort-header>Status </th>
+  <td mat-cell *matCellDef="let element">{{element.status}} </td>
+</ng-container>
+
+<tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+<tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+<mat-paginator [length]="20"
+          [pageSize]="3"
+          [pageSizeOptions]="[5, 10, 25, 100]"
+          class="left"
+          >
+</mat-paginator>
+
+<button mat-button color="primary" class="right" (click)="addRole()">add</button>

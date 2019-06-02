@@ -1,0 +1,62 @@
+
+<form class="example-form">
+    <span>Enter Role Name  : </span>
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Role Name"   [(ngModel)]="role.name" name="name">
+  </mat-form-field>
+  <span>Enter Date  : </span>
+  <mat-form-field class="example-full-width">
+      <input matInput placeholder="Date"   [(ngModel)]="role.date" name="date">
+    </mat-form-field>
+    <span>Enter status  : </span>
+    <mat-form-field class="example-full-width">
+        <input matInput placeholder="status"   [(ngModel)]="role.status" name="status">
+      </mat-form-field>
+    
+  <span>Main Program  : </span>
+<mat-form-field class="example-full-width">
+  <mat-label>Main Features</mat-label>
+  <mat-select>
+    <mat-option *ngFor="let f of features" [value]="f">
+      {{f.value}}
+    </mat-option>
+  </mat-select>
+</mat-form-field >
+<span>Sub Program: </span>
+<mat-form-field class="example-full-width">
+  <mat-label>Sub Features</mat-label>
+  <mat-select>
+    <mat-option *ngFor="let f of features" [value]="f">
+      {{f.value}}
+    </mat-option>
+  </mat-select>
+</mat-form-field >
+<span>Pages : </span>  
+<mat-form-field class="example-full-width">
+  <mat-label>pages</mat-label>
+  <mat-select>
+    <mat-option *ngFor="let page of pages" [value]="page" (click)='details(page.number)'>
+      {{page.number}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+  </form>
+
+      
+        <ul class="ul" id="permisions" >
+           
+        </ul>
+        <div>
+          <i class="material-icons" (click)="removeitem()">
+            block
+            </i>
+            <i class="material-icons" (click)="additem()">
+                check_circle
+                </i>
+        </div>
+        <ul class="ul" id="permisions">
+           
+        </ul>
+        
+        <button mat-raised-button color="primary" class="margin" (click)='postRole(role._id ,role)'>Save</button>
+    <button mat-raised-button class="margin" color="primary" (click)='backHome()'>Back</button>
